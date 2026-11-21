@@ -20,7 +20,7 @@ export function SiteFooter() {
       </div>
       <div className="mx-auto flex max-w-7xl flex-col gap-6 px-4 py-10 sm:px-6 md:flex-row md:items-center md:justify-between">
         <div className="flex items-center gap-3">
-          <img src={BRAND.emblemUrl} alt="" className="size-10 object-contain" />
+          <img src={BRAND.emblemUrl} alt="" className="h-10 w-auto object-contain" />
           <div>
             <p className="font-display font-bold">CodeShield</p>
             <p className="text-xs text-muted-foreground">{BRAND.tagline}</p>

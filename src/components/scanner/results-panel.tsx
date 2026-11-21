@@ -1,4 +1,4 @@
-import { Crosshair, Loader2, Radar, RefreshCw, Rocket, ShieldCheck, Sparkles, Wand2 } from "lucide-react";
+import { Crosshair, Loader2, Radar, RefreshCw, ShieldCheck } from "lucide-react";
 import { countBy, type Issue, type ScanResult } from "@/lib/scanner";
 import { cn } from "@/lib/utils";
 
@@ -34,7 +34,7 @@ export function RunButton({ onRun, scanning, className }: { onRun: () => void; s
       )}
     >
       <span className="absolute inset-0 -translate-x-full bg-foreground/30 blur-md transition-transform duration-700 group-hover:translate-x-full" />
-      {scanning ? <Loader2 className="size-5 animate-spin" /> : <Rocket className="size-5 transition-transform group-hover:-translate-y-0.5 group-hover:rotate-12" />}
+      {scanning ? <Loader2 className="size-5 animate-spin" /> : null}
       {scanning ? "Scanning…" : "🚀 Run AST & Multi-Lang Scan"}
     </button>
   );
@@ -124,7 +124,7 @@ export function ResultsPanel({ result, scanning, stale, onRun, onFix, onFixAll, 
             onClick={onFixAll}
             className="mt-4 flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-neon bg-[length:200%_100%] py-3 font-display text-sm font-bold text-primary-foreground transition hover:scale-[1.01] active:scale-95 animate-shimmer"
           >
-            <Wand2 className="size-4" /> ✨ Auto-Resolve Everything ({fixable} fixable)
+            ✨ Auto-Resolve Everything ({fixable} fixable)
           </button>
         )}
         {stale && <StaleNote onRun={onRun} />}
@@ -156,7 +156,7 @@ export function ResultsPanel({ result, scanning, stale, onRun, onFix, onFixAll, 
                     onClick={() => onFix(i)}
                     className="inline-flex items-center gap-1.5 rounded-xl bg-gradient-gold px-3.5 py-2 text-xs font-bold text-primary-foreground transition hover:scale-105 active:scale-95"
                   >
-                    <Sparkles className="size-3.5" /> ✨ Auto-Resolve / Fix Code
+                    ✨ Auto-Resolve / Fix Code
                   </button>
                 ) : (
                   <span className="text-xs text-muted-foreground">Needs a human decision — follow the tip above.</span>

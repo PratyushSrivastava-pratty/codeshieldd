@@ -1,5 +1,4 @@
-import logo from "@/assets/codeshield-logo.png.asset.json";
-import emblem from "@/assets/codeshield-emblem.png.asset.json";
+import emblem from "@/assets/codeshield-emblem-clear.png.asset.json";
 import clip1 from "@/assets/demo-1-welcome.mp3.asset.json";
 import clip2 from "@/assets/demo-2-paste.mp3.asset.json";
 import clip3 from "@/assets/demo-3-scan.mp3.asset.json";
@@ -10,7 +9,7 @@ export const BRAND = {
   name: "CodeShield",
   tagline: "Securing software, strengthening systems",
   founder: "Pratyush Srivastava",
-  logoUrl: logo.url,
+  logoUrl: emblem.url,
   emblemUrl: emblem.url,
 };
 

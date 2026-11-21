@@ -47,7 +47,7 @@ export function SiteHeader() {
           <img
             src={BRAND.emblemUrl}
             alt="CodeShield logo"
-            className="size-10 object-contain drop-shadow-[0_0_12px_var(--gold)] transition-transform group-hover:rotate-[-8deg] group-hover:scale-110"
+            className="h-10 w-auto object-contain drop-shadow-[0_0_12px_var(--gold)] transition-transform group-hover:rotate-[-8deg] group-hover:scale-110"
           />
           <div className="leading-none">
             <span className="block font-display text-lg font-bold tracking-tight text-gradient-gold">CodeShield</span>

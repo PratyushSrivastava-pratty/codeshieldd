@@ -35,7 +35,10 @@ export function ScanHistory({ onLoad }: { onLoad: (code: string, language: Langu
 
   async function remove(id: string) {
     const { error } = await supabase.from("scans").delete().eq("id", id);
-    if (error) return toast.error(error.message);
+    if (error) {
+      toast.error(error.message);
+      return;
+    }
     toast.success("Scan removed from history");
     if (user) qc.invalidateQueries({ queryKey: historyKey(user.id) });
   }
