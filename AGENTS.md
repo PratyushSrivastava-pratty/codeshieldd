@@ -28,3 +28,8 @@ use the editor.
   own key and store it in Secrets.
 - **Secrets.** Lovable manages them. Do not put secret values in the repo.
 <!-- LOVABLE:END -->
+
+## Project rules
+- Feedback is validated by one shared zod schema (`src/lib/feedback/schema.ts`) used by both the form and the server function — so client and server limits never drift.
+- Feedback rows are inserted server-side with the publishable client under an insert-only RLS policy, then forwarded through the Gmail connector only when `GOOGLE_MAIL_API_KEY` is linked — storage is the source of truth so no message is lost if email fails.
+- The site header switches to the mobile menu below the `lg` breakpoint — the nav has six links and overflows at tablet widths.

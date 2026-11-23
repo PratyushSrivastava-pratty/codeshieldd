@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "@tanstack/react-router";
-import { LogIn, LogOut, Menu, ScanLine, Info, Award, Brain, Scale, X, Crown } from "lucide-react";
+import { LogIn, LogOut, Menu, ScanLine, Info, Award, Brain, Scale, X, Crown, MessageSquareHeart } from "lucide-react";
 import { useAuth } from "@/hooks/use-auth";
 import { BRAND } from "@/lib/brand";
 import { cn } from "@/lib/utils";
@@ -11,6 +11,7 @@ export const NAV = [
   { to: "/credits", label: "Credits", icon: Award },
   { to: "/dev-thinking", label: "Dev Thinking", icon: Brain },
   { to: "/terms", label: "T&C/Copyright", icon: Scale },
+  { to: "/feedback", label: "Feedback", icon: MessageSquareHeart },
 ] as const;
 
 export function SiteHeader() {
@@ -54,11 +55,11 @@ export function SiteHeader() {
             <span className="hidden text-[10px] uppercase tracking-[0.2em] text-muted-foreground sm:block">secure · strengthen</span>
           </div>
         </Link>
-        <span className="pill hidden border-gold/40 text-gold lg:inline-flex">
+        <span className="pill hidden border-gold/40 text-gold xl:inline-flex">
           <Crown className="size-3" /> Built by {BRAND.founder}
         </span>
 
-        <nav className="ml-auto hidden items-center gap-1 md:flex" aria-label="Main">
+        <nav className="ml-auto hidden items-center gap-1 lg:flex" aria-label="Main">
           {NAV.map((n) => (
             <Link
               key={n.to}
@@ -72,10 +73,10 @@ export function SiteHeader() {
           ))}
         </nav>
 
-        <div className="ml-auto hidden md:ml-2 md:block">{authButton}</div>
+        <div className="ml-auto hidden lg:ml-2 lg:block">{authButton}</div>
 
         <button
-          className="ml-auto flex size-10 items-center justify-center rounded-full border border-input md:hidden"
+          className="ml-auto flex size-10 items-center justify-center rounded-full border border-input lg:hidden"
           onClick={() => setOpen((o) => !o)}
           aria-label={open ? "Close menu" : "Open menu"}
           aria-expanded={open}
@@ -84,7 +85,7 @@ export function SiteHeader() {
         </button>
       </div>
 
-      <div className={cn("overflow-hidden border-t border-border/60 md:hidden", open ? "block" : "hidden")}>
+      <div className={cn("overflow-hidden border-t border-border/60 lg:hidden", open ? "block" : "hidden")}>
         <nav className="mx-auto grid max-w-7xl gap-1 p-4" aria-label="Mobile">
           <span className="pill mb-2 w-fit border-gold/40 text-gold">
             <Crown className="size-3" /> Built by {BRAND.founder}

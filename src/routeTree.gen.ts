@@ -13,6 +13,7 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as CreditsRouteImport } from './routes/credits'
 import { Route as DevThinkingRouteImport } from './routes/dev-thinking'
+import { Route as FeedbackRouteImport } from './routes/feedback'
 import { Route as ResetPasswordRouteImport } from './routes/reset-password'
 import { Route as TermsRouteImport } from './routes/terms'
 
@@ -36,6 +37,11 @@ const DevThinkingRoute = DevThinkingRouteImport.update({
   path: '/dev-thinking',
   getParentRoute: () => rootRouteImport,
 } as any)
+const FeedbackRoute = FeedbackRouteImport.update({
+  id: '/feedback',
+  path: '/feedback',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ResetPasswordRoute = ResetPasswordRouteImport.update({
   id: '/reset-password',
   path: '/reset-password',
@@ -52,6 +58,7 @@ export interface FileRoutesByFullPath {
   '/about': typeof AboutRoute
   '/credits': typeof CreditsRoute
   '/dev-thinking': typeof DevThinkingRoute
+  '/feedback': typeof FeedbackRoute
   '/reset-password': typeof ResetPasswordRoute
   '/terms': typeof TermsRoute
 }
@@ -60,6 +67,7 @@ export interface FileRoutesByTo {
   '/about': typeof AboutRoute
   '/credits': typeof CreditsRoute
   '/dev-thinking': typeof DevThinkingRoute
+  '/feedback': typeof FeedbackRoute
   '/reset-password': typeof ResetPasswordRoute
   '/terms': typeof TermsRoute
 }
@@ -69,22 +77,36 @@ export interface FileRoutesById {
   '/about': typeof AboutRoute
   '/credits': typeof CreditsRoute
   '/dev-thinking': typeof DevThinkingRoute
+  '/feedback': typeof FeedbackRoute
   '/reset-password': typeof ResetPasswordRoute
   '/terms': typeof TermsRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
-    '/' | '/about' | '/credits' | '/dev-thinking' | '/reset-password' | '/terms'
+    | '/'
+    | '/about'
+    | '/credits'
+    | '/dev-thinking'
+    | '/feedback'
+    | '/reset-password'
+    | '/terms'
   fileRoutesByTo: FileRoutesByTo
   to:
-    '/' | '/about' | '/credits' | '/dev-thinking' | '/reset-password' | '/terms'
+    | '/'
+    | '/about'
+    | '/credits'
+    | '/dev-thinking'
+    | '/feedback'
+    | '/reset-password'
+    | '/terms'
   id:
     | '__root__'
     | '/'
     | '/about'
     | '/credits'
     | '/dev-thinking'
+    | '/feedback'
     | '/reset-password'
     | '/terms'
   fileRoutesById: FileRoutesById
@@ -94,6 +116,7 @@ export interface RootRouteChildren {
   AboutRoute: typeof AboutRoute
   CreditsRoute: typeof CreditsRoute
   DevThinkingRoute: typeof DevThinkingRoute
+  FeedbackRoute: typeof FeedbackRoute
   ResetPasswordRoute: typeof ResetPasswordRoute
   TermsRoute: typeof TermsRoute
 }
@@ -128,6 +151,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DevThinkingRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/feedback': {
+      id: '/feedback'
+      path: '/feedback'
+      fullPath: '/feedback'
+      preLoaderRoute: typeof FeedbackRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/reset-password': {
       id: '/reset-password'
       path: '/reset-password'
@@ -150,6 +180,7 @@ const rootRouteChildren: RootRouteChildren = {
   AboutRoute: AboutRoute,
   CreditsRoute: CreditsRoute,
   DevThinkingRoute: DevThinkingRoute,
+  FeedbackRoute: FeedbackRoute,
   ResetPasswordRoute: ResetPasswordRoute,
   TermsRoute: TermsRoute,
 }
